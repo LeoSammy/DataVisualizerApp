@@ -1,11 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.SignupController">
-    
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="765.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="2.0" />
+   </padding>
+   <top>
+      <Label alignment="CENTER" prefHeight="46.0" prefWidth="460.0" style="-fx-background-color: #87d9de;" text="SignUp Screen" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <font>
+            <Font name="AnjaliOldLipi" size="14.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <HBox prefHeight="31.0" prefWidth="460.0" style="-fx-background-color: #dfe9f7;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="24.0" prefWidth="213.0" text="For any inquiries please visit " textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Gargi" size="13.0" />
+               </font>
+            </Label>
+            <Hyperlink prefHeight="24.0" prefWidth="196.0" text="sammytech.de.cr" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="450.0" BorderPane.alignment="CENTER">
+         <effect>
+            <ColorAdjust />
+         </effect>
+         <children>
+            <Pane layoutX="12.0" layoutY="13.0" prefHeight="643.0" prefWidth="435.0" style="-fx-background-color: #FFFFFF;">
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" />
+               </effect>
+               <children>
+                  <JFXTextField labelFloat="true" layoutX="68.0" layoutY="328.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Username" style="-fx-background-color: #B6F0CB;">
+                     <font>
+                        <Font name="Garuda Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXPasswordField layoutX="68.0" layoutY="384.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #B6F0CB;">
+                     <font>
+                        <Font name="Garuda Bold" size="13.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXButton buttonType="RAISED" layoutX="100.0" layoutY="544.0" prefHeight="57.0" prefWidth="219.0" ripplerFill="WHITE" style="-fx-background-color: #2e52e0;" text="Create Account" />
+                  <JFXPasswordField layoutX="68.0" layoutY="450.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Confirm Password" style="-fx-background-color: #B6F0CB;">
+                     <font>
+                        <Font name="Garuda Bold" size="13.0" />
+                     </font>
+                  </JFXPasswordField>
+                  <JFXTextField labelFloat="true" layoutX="68.0" layoutY="251.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Email">
+                     <font>
+                        <Font name="Garuda Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField labelFloat="true" layoutX="68.0" layoutY="174.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Name">
+                     <font>
+                        <Font name="Garuda Bold" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="612.0" prefHeight="16.0" prefWidth="343.0" style="-fx-background-color: #F1DBE3;" text="Status" textAlignment="CENTER">
+                     <font>
+                        <Font name="Chilanka Regular" size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView blendMode="RED" fitHeight="86.0" fitWidth="112.0" layoutX="160.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/avatar.png" />
+                     </image>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
