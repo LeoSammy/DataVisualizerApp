@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" style="-fx-background-color: #87d9de; -fx-border-style: solid inside;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.FXMLDocumentController">
+   <center>
+      <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1600.0">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu fx:id="File" mnemonicParsing="false" text="File">
+                  <items>
+                        <MenuItem mnemonicParsing="false" text="New File               Ctrl+N" />
+                        <MenuItem mnemonicParsing="false" text=" New From Template" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Open " />
+                        <Menu mnemonicParsing="false" text="Open Recent" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Save" />
+                        <MenuItem mnemonicParsing="false" text="Save As..." />
+                        <MenuItem mnemonicParsing="false" text="Revert" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Import..." />
+                        <Menu mnemonicParsing="false" text="Export as...">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="PNG" />
+                              <MenuItem mnemonicParsing="false" text="JPG" />
+                              <MenuItem mnemonicParsing="false" text="PDF" />
+                          </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" text="Print" />
+                        <MenuItem mnemonicParsing="false" text="Quit                    Ctrl+Q" />
+                  </items>
+                </Menu>
+                <Menu fx:id="Load" mnemonicParsing="false" text="Load">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Load File" />
+                        <Menu mnemonicParsing="false" text="Load From">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Local Database" />
+                              <MenuItem mnemonicParsing="false" text="Cloud Server" />
+                          </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" text="Cancel" />
+                     </items>
+                </Menu>
+                  <Menu fx:id="Edit" mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Undo                     Ctrl+Z" />
+                        <MenuItem mnemonicParsing="false" text="Redo                     Ctrl+Y" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Cut" />
+                        <MenuItem mnemonicParsing="false" text="Copy" />
+                        <MenuItem mnemonicParsing="false" text="Paste" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="View" mnemonicParsing="false" text="Visualize">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Graphs">
+                          <items>
+                              <RadioMenuItem mnemonicParsing="false" text="Line Graph" />
+                              <RadioMenuItem mnemonicParsing="false" text="Heat Graph" />
+                              <RadioMenuItem mnemonicParsing="false" text="Area Graph" />
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Charts">
+                          <items>
+                              <RadioMenuItem mnemonicParsing="false" text="Bar Chart" />
+                              <RadioMenuItem mnemonicParsing="false" text="Line Chart" />
+                              <RadioMenuItem mnemonicParsing="false" text="Pie Chart" />
+                              <RadioMenuItem mnemonicParsing="false" text="Scatter Chart" />
+                          </items>
+                        </Menu>
+                    </items>
+                  </Menu>
+                <Menu fx:id="Help" mnemonicParsing="false" text="Help">
+                  <items>
+                        <MenuItem mnemonicParsing="false" text="Visit Website" />
+                        <MenuItem mnemonicParsing="false" text="Contact Us" />
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </MenuBar>
+            <ToolBar minHeight="-Infinity" prefHeight="30.0" prefWidth="1596.0" style="-fx-background-color: #dfe9f7;">
+               <VBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </VBox.margin>
+               <items>
+                  <JFXButton buttonType="RAISED" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#060101" text="Open">
+                     <graphic>
+                        <ImageView fx:id="open" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/open.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Save">
+                     <graphic>
+                        <ImageView fx:id="saveas" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/save-as.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="56.0" layoutY="10.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#110505" text="Close">
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fx:id="close" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/close-window.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
+                  <JFXButton buttonType="RAISED" layoutX="32.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Edit">
+                     <graphic>
+                        <ImageView fx:id="edit" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/edit-file.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="84.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Fill">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/document-filled.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="106.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Copy">
+                     <graphic>
+                        <ImageView fx:id="paste" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/copy.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <Separator layoutX="76.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
+                  <JFXButton fx:id="undo" buttonType="RAISED" layoutX="106.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Undo">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/undo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="128.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Redo">
+                     <graphic>
+                        <ImageView fx:id="redo" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/redo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <Separator layoutX="150.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
+                  <JFXButton buttonType="RAISED" layoutX="180.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Zoom in">
+                     <graphic>
+                        <ImageView fx:id="max" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/zoom-in.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="210.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Zoom out">
+                     <graphic>
+                        <ImageView fx:id="min" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/zoom-out.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXSlider fx:id="slider" prefHeight="16.0" prefWidth="81.0" />
+                  <JFXComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="38.0" promptText="12" />
+                  <Separator layoutX="202.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
+                  <JFXButton buttonType="RAISED" layoutX="232.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Hand">
+                     <graphic>
+                        <ImageView fx:id="hand" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/hand.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="389.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Select">
+                     <graphic>
+                        <ImageView fx:id="select" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/cursor.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="411.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Expand">
+                     <graphic>
+                        <ImageView fx:id="expand" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/expand-filled.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <Separator layoutX="381.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
+                  <JFXButton buttonType="RAISED" layoutX="411.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Snapshot">
+                     <graphic>
+                        <ImageView fx:id="snapshot" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/screenshot.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="463.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="24.0" ripplerFill="#140606" text="ScreenCapture">
+                     <graphic>
+                        <ImageView fx:id="screencap" fitHeight="18.0" fitWidth="32.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/screencapture.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="463.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Picture">
+                     <graphic>
+                        <ImageView fx:id="picture" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/picture.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="513.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="TabPane">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/tab.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <ColorPicker fx:id="color" />
+                  <Separator layoutX="455.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
+                  <Pane prefHeight="28.0" prefWidth="309.0" />
+                  <Separator layoutX="557.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
+                  <JFXButton buttonType="RAISED" layoutX="535.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Search">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <TextField promptText="search" />
+                  <JFXButton buttonType="RAISED" layoutX="1163.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Share">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/share.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="1185.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Sync">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/synchronize.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="1185.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Print">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/print-filled.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="1229.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Download">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/download.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <Separator layoutX="1155.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
+                  <Pane prefHeight="28.0" prefWidth="107.0" />
+                  <JFXButton buttonType="RAISED" layoutX="1302.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="40.0" ripplerFill="#140606" text="SignIn">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+                  <Label text="leosammy@y..." />
+                  <JFXButton buttonType="RAISED" layoutX="1410.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="40.0" ripplerFill="#140606" text="Login">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/Login.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Gargi" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="1.0" right="1.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
+                     </padding>
+                  </JFXButton>
+               </items>
+               <padding>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </padding>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </ToolBar>
+            <SplitPane dividerPositions="0.185" VBox.vgrow="ALWAYS">
+              <items>
+                <AnchorPane maxWidth="350.0" minWidth="-Infinity">
+                     <children>
+                        <Label alignment="CENTER" disable="true" prefHeight="26.0" prefWidth="293.0" style="-fx-background-color: #Ced4;" text="Data Configuration and Chart Analysis " textFill="#322db5">
+                           <font>
+                              <Font name="Lucida Bright Demibold" size="14.0" />
+                           </font>
+                           <effect>
+                              <Bloom />
+                           </effect>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </Label>
+                        <Accordion layoutY="33.0" prefHeight="684.0" prefWidth="293.0">
+                          <panes>
+                            <TitledPane animated="false" text="untitled 1">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="untitled 2">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="untitled 3">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane hbarPolicy="ALWAYS" pannable="true" vbarPolicy="ALWAYS">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <Accordion prefHeight="700.0" prefWidth="1300.0">
+                                <panes>
+                                  <TitledPane text="BarChart">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <BarChart layoutX="129.0" layoutY="21.0" prefHeight="512.0" prefWidth="836.0">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" />
+                                                  </yAxis>
+                                                </BarChart>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                       <font>
+                                          <Font name="Garuda" size="13.0" />
+                                       </font>
+                                  </TitledPane>
+                                  <TitledPane text="Pie Chart">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <PieChart layoutX="100.0" layoutY="23.0" prefHeight="497.0" prefWidth="784.0" startAngle="20.0" style="-fx-background-color: #b6cded;" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </TitledPane>
+                                  <TitledPane text="Scatter Chart">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <ScatterChart layoutX="14.0" layoutY="14.0" prefHeight="501.0" prefWidth="732.0">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" />
+                                                  </yAxis>
+                                                </ScatterChart>
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </TitledPane>
+                                    <TitledPane text="Line Chart">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <LineChart layoutX="14.0" layoutY="14.0" prefHeight="488.0" prefWidth="721.0">
+                                                  <xAxis>
+                                                    <CategoryAxis side="BOTTOM" />
+                                                  </xAxis>
+                                                  <yAxis>
+                                                    <NumberAxis side="LEFT" />
+                                                  </yAxis>
+                                                </LineChart>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </TitledPane>
+                                </panes>
+                              </Accordion>
+                           </children></AnchorPane>
+                    </content>
+                  </ScrollPane>
+              </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <Label alignment="TOP_LEFT" prefHeight="37.0" prefWidth="290.0" text="DaTaAnalytica" textFill="#172f72" BorderPane.alignment="TOP_CENTER">
+         <font>
+            <Font name="Dyuthi" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView blendMode="MULTIPLY" fitHeight="33.0" fitWidth="67.0" opacity="0.96" pickOnBounds="true">
+               <image>
+                  <Image url="@Logo.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <effect>
+                  <Blend />
+               </effect>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets bottom="1.0" left="4.0" right="4.0" top="1.0" />
+         </padding>
+      </Label>
+   </top>
+   <padding>
+      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+   </padding>
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Left Status" underline="true">
+               <font>
+                  <Font name="FreeSerif" size="13.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="18.0" HBox.hgrow="ALWAYS" />
+            <Label text="Right Staus" underline="true" HBox.hgrow="NEVER" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
