@@ -54,38 +54,38 @@
                   <DropShadow blurType="GAUSSIAN" />
                </effect>
                <children>
-                  <JFXTextField labelFloat="true" layoutX="68.0" layoutY="328.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Username" style="-fx-background-color: #B6F0CB;">
+                  <JFXTextField fx:id="usrname" labelFloat="true" layoutX="68.0" layoutY="328.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Username" style="-fx-background-color: #B6F0CB;">
                      <font>
                         <Font name="Garuda Bold" size="13.0" />
                      </font>
                   </JFXTextField>
-                  <JFXPasswordField layoutX="68.0" layoutY="384.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #B6F0CB;">
+                  <JFXPasswordField fx:id="pswd" layoutX="68.0" layoutY="384.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #B6F0CB;">
                      <font>
                         <Font name="Garuda Bold" size="13.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXButton buttonType="RAISED" layoutX="100.0" layoutY="544.0" prefHeight="57.0" prefWidth="219.0" ripplerFill="WHITE" style="-fx-background-color: #2e52e0;" text="Create Account" />
-                  <JFXPasswordField layoutX="68.0" layoutY="450.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Confirm Password" style="-fx-background-color: #B6F0CB;">
+                  <JFXButton fx:id="createacct" buttonType="RAISED" layoutX="100.0" layoutY="544.0" prefHeight="57.0" prefWidth="219.0" ripplerFill="WHITE" style="-fx-background-color: #2e52e0;" text="Create Account" />
+                  <JFXPasswordField fx:id="cpswd" layoutX="68.0" layoutY="450.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Confirm Password" style="-fx-background-color: #B6F0CB;">
                      <font>
                         <Font name="Garuda Bold" size="13.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXTextField labelFloat="true" layoutX="68.0" layoutY="251.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Email">
+                  <JFXTextField fx:id="email" labelFloat="true" layoutX="68.0" layoutY="251.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Email">
                      <font>
                         <Font name="Garuda Bold" size="13.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField labelFloat="true" layoutX="68.0" layoutY="174.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Name">
+                  <JFXTextField fx:id="name" labelFloat="true" layoutX="68.0" layoutY="174.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Name">
                      <font>
                         <Font name="Garuda Bold" size="13.0" />
                      </font>
                   </JFXTextField>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="612.0" prefHeight="16.0" prefWidth="343.0" style="-fx-background-color: #F1DBE3;" text="Status" textAlignment="CENTER">
+                  <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="612.0" prefHeight="16.0" prefWidth="343.0" style="-fx-background-color: #F1DBE3;" text="Status" textAlignment="CENTER">
                      <font>
                         <Font name="Chilanka Regular" size="13.0" />
                      </font>
                   </Label>
-                  <ImageView blendMode="RED" fitHeight="86.0" fitWidth="112.0" layoutX="160.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="img" blendMode="RED" fitHeight="86.0" fitWidth="112.0" layoutX="160.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Icons/avatar.png" />
                      </image>

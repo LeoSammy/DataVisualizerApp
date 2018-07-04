@@ -8,13 +8,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.LoginController">
    <padding>
       <Insets bottom="2.0" />
    </padding>
@@ -51,23 +54,31 @@
                   <DropShadow blurType="GAUSSIAN" />
                </effect>
                <children>
-                  <JFXTextField labelFloat="true" layoutX="68.0" layoutY="161.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Username">
+                  <JFXTextField fx:id="usrname" labelFloat="true" layoutX="68.0" layoutY="205.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Username">
                      <font>
                         <Font name="Garuda Bold" size="13.0" />
                      </font>
                   </JFXTextField>
-                  <JFXPasswordField layoutX="68.0" layoutY="218.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Password">
+                  <JFXPasswordField fx:id="pswd" layoutX="68.0" layoutY="262.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Password">
                      <font>
                         <Font name="Garuda Bold" size="13.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXButton buttonType="RAISED" layoutX="57.0" layoutY="330.0" prefHeight="40.0" prefWidth="120.0" ripplerFill="WHITE" style="-fx-background-color: #2e52e0;" text="Login" />
-                  <JFXButton buttonType="RAISED" layoutX="248.0" layoutY="330.0" prefHeight="40.0" prefWidth="120.0" ripplerFill="WHITE" style="-fx-background-color: #2e52e0;" text="SignUp" />
-                  <Label alignment="CENTER" disable="true" layoutX="63.0" layoutY="449.0" prefHeight="16.0" prefWidth="310.0" text="Status   " textAlignment="CENTER" textFill="#ae4343">
+                  <JFXButton fx:id="lgn" buttonType="RAISED" layoutX="57.0" layoutY="359.0" onAction="#lgnButtonAction" prefHeight="40.0" prefWidth="120.0" ripplerFill="WHITE" style="-fx-background-color: #2e52e0;" text="Login" />
+                  <JFXButton fx:id="signup" buttonType="RAISED" layoutX="248.0" layoutY="359.0" onAction="#signupButtonAction" prefHeight="40.0" prefWidth="120.0" ripplerFill="WHITE" style="-fx-background-color: #2e52e0;" text="SignUp" />
+                  <Label fx:id="stats" alignment="CENTER" disable="true" layoutX="63.0" layoutY="449.0" prefHeight="16.0" prefWidth="310.0" text="Status   " textAlignment="CENTER" textFill="#ae4343">
                      <font>
                         <Font name="Gubbi" size="13.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="image" fitHeight="93.0" fitWidth="104.0" layoutX="164.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/user.png" />
+                     </image>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </ImageView>
                </children>
             </Pane>
          </children>

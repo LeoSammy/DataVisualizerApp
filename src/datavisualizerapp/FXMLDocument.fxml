@@ -542,7 +542,7 @@
                   <Pane prefHeight="28.0" prefWidth="107.0" />
                   <JFXButton buttonType="RAISED" layoutX="1302.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="40.0" ripplerFill="#140606" text="SignIn">
                      <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="user" fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/user.png" />
                            </image>
@@ -558,8 +558,8 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <Label text="leosammy@y..." />
-                  <JFXButton buttonType="RAISED" layoutX="1410.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="40.0" ripplerFill="#140606" text="Login">
+                  <Label fx:id="namefield" text="leosammy@y..." />
+                  <JFXButton fx:id="login" buttonType="RAISED" layoutX="1410.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loginButtonAction" prefHeight="22.0" prefWidth="40.0" ripplerFill="#140606" text="Login">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
