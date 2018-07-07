@@ -33,14 +33,8 @@ public class LoginController implements Initializable {
     @FXML
     private JFXPasswordField pswd;
     @FXML
-    private JFXButton lgn;
-    @FXML
-    private JFXButton signup;
-    @FXML
     private Label stats;
-    @FXML
-    private ImageView image;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -50,14 +44,22 @@ public class LoginController implements Initializable {
     }    
 
     @FXML
-    private void lgnButtonAction(ActionEvent event) {
+    private void lgnButtonAction(ActionEvent event) throws IOException {
         //Verification if user is Authenticated rightly
-       
-    
+       if ( usrname.getText().equals("Leo") && pswd.getText().equals("password")){
+            stats.setText("Login Successful");
+            
+            
         System.out.print("Logged in");
+        }
+        
+        else {
+            stats.setText("Login Failed \n"
+                    + "Please Try Again");
+             }
     }
-
     //Function to Launch Signup window
+    
     @FXML
     private void signupButtonAction(ActionEvent event) throws IOException {
         
@@ -71,6 +73,6 @@ public class LoginController implements Initializable {
         stage.show();
         
         System.out.print("Signing up...");
-    }
+        }
     
 }

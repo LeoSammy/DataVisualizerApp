@@ -70,13 +70,13 @@
                 <Menu fx:id="Load" mnemonicParsing="false" text="Load">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Load File" />
-                        <Menu mnemonicParsing="false" text="Load From">
+                        <Menu mnemonicParsing="false" text="Connect">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Local Database" />
                               <MenuItem mnemonicParsing="false" text="Cloud Server" />
                           </items>
                         </Menu>
-                        <MenuItem mnemonicParsing="false" text="Cancel" />
+                        <MenuItem mnemonicParsing="false" text="Stop" />
                      </items>
                 </Menu>
                   <Menu fx:id="Edit" mnemonicParsing="false" text="Edit">
@@ -445,7 +445,7 @@
                   </JFXButton>
                   <ColorPicker fx:id="color" />
                   <Separator layoutX="455.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
-                  <Pane prefHeight="28.0" prefWidth="309.0" />
+                  <Pane prefHeight="28.0" prefWidth="273.0" />
                   <Separator layoutX="557.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
                   <JFXButton buttonType="RAISED" layoutX="535.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Search">
                      <graphic>
@@ -540,24 +540,12 @@
                   </JFXButton>
                   <Separator layoutX="1155.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
                   <Pane prefHeight="28.0" prefWidth="107.0" />
-                  <JFXButton buttonType="RAISED" layoutX="1302.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="40.0" ripplerFill="#140606" text="SignIn">
-                     <graphic>
-                        <ImageView fx:id="user" fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Icons/user.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="Gargi" size="13.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets left="1.0" right="1.0" />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
-                     </padding>
-                  </JFXButton>
+                  <Separator layoutX="1322.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
+                  <ImageView fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Icons/user.png" />
+                     </image>
+                  </ImageView>
                   <Label fx:id="namefield" text="leosammy@y..." />
                   <JFXButton fx:id="login" buttonType="RAISED" layoutX="1410.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loginButtonAction" prefHeight="22.0" prefWidth="40.0" ripplerFill="#140606" text="Login">
                      <graphic>
@@ -602,9 +590,13 @@
                         </Label>
                         <Accordion layoutY="33.0" prefHeight="684.0" prefWidth="293.0">
                           <panes>
-                            <TitledPane animated="false" text="untitled 1">
+                            <TitledPane animated="false" text="Data ">
                               <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <JFXButton fx:id="load" buttonType="RAISED" layoutX="9.0" layoutY="14.0" onAction="#loadchartButton" prefWidth="120.0" ripplerFill="#463f3f" style="-fx-background-color: #FCFFF1;" text="Load" textAlignment="CENTER" />
+                                          <JFXButton fx:id="refresh" buttonType="RAISED" layoutX="160.0" layoutY="14.0" onAction="#refreshChart" prefWidth="120.0" ripplerFill="#463f3f" style="-fx-background-color: #FCFFF1;" text="Refresh" textAlignment="CENTER" />
+                                       </children></AnchorPane>
                               </content>
                             </TitledPane>
                             <TitledPane animated="false" text="untitled 2">
@@ -634,12 +626,12 @@
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
                                              <children>
-                                                <BarChart layoutX="129.0" layoutY="21.0" prefHeight="512.0" prefWidth="836.0">
+                                                <BarChart fx:id="barChart" layoutX="129.0" layoutY="21.0" prefHeight="512.0" prefWidth="836.0" title="Meritorious Students">
                                                   <xAxis>
-                                                    <CategoryAxis side="BOTTOM" />
+                                                    <CategoryAxis label="Student Name" side="BOTTOM" fx:id="x" />
                                                   </xAxis>
                                                   <yAxis>
-                                                    <NumberAxis side="LEFT" />
+                                                    <NumberAxis fx:id="y" side="LEFT" />
                                                   </yAxis>
                                                 </BarChart>
                                              </children>
@@ -656,7 +648,7 @@
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
                                              <children>
-                                                <PieChart layoutX="100.0" layoutY="23.0" prefHeight="497.0" prefWidth="784.0" startAngle="20.0" style="-fx-background-color: #b6cded;" />
+                                                <PieChart fx:id="pieChart" layoutX="100.0" layoutY="23.0" prefHeight="497.0" prefWidth="784.0" startAngle="20.0" />
                                              </children>
                                           </AnchorPane>
                                     </content>
@@ -668,7 +660,7 @@
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
                                              <children>
-                                                <ScatterChart layoutX="14.0" layoutY="14.0" prefHeight="501.0" prefWidth="732.0">
+                                                <ScatterChart fx:id="scatterChart" layoutX="14.0" layoutY="14.0" prefHeight="501.0" prefWidth="732.0">
                                                   <xAxis>
                                                     <CategoryAxis side="BOTTOM" />
                                                   </xAxis>
@@ -680,7 +672,7 @@
                                           </AnchorPane>
                                     </content>
                                   </TitledPane>
-                                    <TitledPane text="Line Chart">
+                                    <TitledPane fx:id="lineChart" text="Line Chart">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <padding>
