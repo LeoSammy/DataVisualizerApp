@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="765.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="765.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.SignupController">
    <padding>
       <Insets bottom="2.0" />
    </padding>
@@ -59,13 +59,13 @@
                         <Font name="Garuda Bold" size="13.0" />
                      </font>
                   </JFXTextField>
-                  <JFXPasswordField fx:id="pswd" layoutX="68.0" layoutY="384.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #B6F0CB;">
+                  <JFXPasswordField fx:id="pswd" layoutX="68.0" layoutY="384.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Password" prefColumnCount = "8" style="-fx-background-color: #B6F0CB;">
                      <font>
                         <Font name="Garuda Bold" size="13.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXButton fx:id="createacct" buttonType="RAISED" layoutX="100.0" layoutY="544.0" prefHeight="57.0" prefWidth="219.0" ripplerFill="WHITE" style="-fx-background-color: #2e52e0;" text="Create Account" />
-                  <JFXPasswordField fx:id="cpswd" layoutX="68.0" layoutY="450.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Confirm Password" style="-fx-background-color: #B6F0CB;">
+                  <JFXButton fx:id="createacct" buttonType="RAISED" layoutX="100.0" layoutY="544.0" onAction="#createAccntButton" prefHeight="57.0" prefWidth="219.0" ripplerFill="WHITE" style="-fx-background-color: #2e52e0;" text="Create Account" />
+                  <JFXPasswordField fx:id="cpswd" layoutX="68.0" layoutY="450.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="300.0" promptText="Confirm Password" prefColumnCount = "8"  style="-fx-background-color: #B6F0CB;">
                      <font>
                         <Font name="Garuda Bold" size="13.0" />
                      </font>

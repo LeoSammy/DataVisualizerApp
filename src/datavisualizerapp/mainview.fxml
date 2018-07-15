@@ -28,8 +28,10 @@
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -37,7 +39,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="-Infinity" style="-fx-background-color: #87d9de; -fx-border-style: solid inside;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.FXMLDocumentController">
+<BorderPane minHeight="-Infinity" prefHeight="840.0" style="-fx-background-color: #87d9de; -fx-border-style: solid inside;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.FXMLDocumentController">
    <center>
       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1600.0">
          <children>
@@ -45,15 +47,33 @@
               <menus>
                 <Menu fx:id="File" mnemonicParsing="false" text="File">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="New File               Ctrl+N" />
+                        <MenuItem mnemonicParsing="false" text="New File               ">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
                         <MenuItem mnemonicParsing="false" text=" New From Template" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Open " />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
+                        <MenuItem mnemonicParsing="false" text="Open ">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <Menu mnemonicParsing="false" text="Open Recent">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></Menu>
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As..." />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
+                        <MenuItem mnemonicParsing="false" text="Save">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Save As...">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Revert">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" text="Import..." />
                         <Menu mnemonicParsing="false" text="Export as...">
@@ -63,8 +83,14 @@
                               <MenuItem mnemonicParsing="false" text="PDF" />
                           </items>
                         </Menu>
-                        <MenuItem mnemonicParsing="false" text="Print" />
-                        <MenuItem mnemonicParsing="false" text="Quit                    Ctrl+Q" />
+                        <MenuItem mnemonicParsing="false" text="Print">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Quit                    ">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
                   </items>
                 </Menu>
                 <Menu fx:id="Load" mnemonicParsing="false" text="Load">
@@ -81,15 +107,32 @@
                 </Menu>
                   <Menu fx:id="Edit" mnemonicParsing="false" text="Edit">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Undo                     Ctrl+Z" />
-                        <MenuItem mnemonicParsing="false" text="Redo                     Ctrl+Y" />
+                        <MenuItem mnemonicParsing="false" text="Undo                     ">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Redo                    ">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
+                        <MenuItem mnemonicParsing="false" text="Cut">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Copy">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Paste">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="V" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
                      </items>
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="DOWN" shift="UP" shortcut="UP" />
+                     </accelerator>
                   </Menu>
                   <Menu fx:id="View" mnemonicParsing="false" text="Visualize">
                     <items>
@@ -99,6 +142,9 @@
                               <RadioMenuItem mnemonicParsing="false" text="Heat Graph" />
                               <RadioMenuItem mnemonicParsing="false" text="Area Graph" />
                           </items>
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="G" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Charts">
                           <items>
@@ -130,9 +176,9 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </VBox.margin>
                <items>
-                  <JFXButton buttonType="RAISED" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#060101" text="Open">
+                  <JFXButton fx:id="open" buttonType="RAISED" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#060101" text="Open">
                      <graphic>
-                        <ImageView fx:id="open" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/open.png" />
                            </image>
@@ -148,9 +194,9 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Save">
+                  <JFXButton fx:id="save" buttonType="RAISED" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Save">
                      <graphic>
-                        <ImageView fx:id="saveas" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/save-as.png" />
                            </image>
@@ -166,7 +212,7 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="56.0" layoutY="10.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#110505" text="Close">
+                  <JFXButton fx:id="close" buttonType="RAISED" layoutX="56.0" layoutY="10.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#110505" text="Close">
                      <font>
                         <Font name="Gargi" size="13.0" />
                      </font>
@@ -177,7 +223,7 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                      <graphic>
-                        <ImageView fx:id="close" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/close-window.png" />
                            </image>
@@ -185,9 +231,9 @@
                      </graphic>
                   </JFXButton>
                   <Separator orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
-                  <JFXButton buttonType="RAISED" layoutX="32.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Edit">
+                  <JFXButton fx:id="edit" buttonType="RAISED" layoutX="32.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Edit">
                      <graphic>
-                        <ImageView fx:id="edit" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/edit-file.png" />
                            </image>
@@ -203,7 +249,7 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="84.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Fill">
+                  <JFXButton fx:id="fill" buttonType="RAISED" layoutX="84.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Fill">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -221,9 +267,9 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="106.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Copy">
+                  <JFXButton fx:id="copy" buttonType="RAISED" layoutX="106.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Copy">
                      <graphic>
-                        <ImageView fx:id="paste" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/copy.png" />
                            </image>
@@ -258,9 +304,9 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="128.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Redo">
+                  <JFXButton fx:id="redo" buttonType="RAISED" layoutX="128.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Redo">
                      <graphic>
-                        <ImageView fx:id="redo" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/redo.png" />
                            </image>
@@ -277,9 +323,9 @@
                      </padding>
                   </JFXButton>
                   <Separator layoutX="150.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
-                  <JFXButton buttonType="RAISED" layoutX="180.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Zoom in">
+                  <JFXButton fx:id="max" buttonType="RAISED" layoutX="180.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Zoom in">
                      <graphic>
-                        <ImageView fx:id="max" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/zoom-in.png" />
                            </image>
@@ -295,9 +341,9 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="210.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Zoom out">
+                  <JFXButton fx:id="min" buttonType="RAISED" layoutX="210.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Zoom out">
                      <graphic>
-                        <ImageView fx:id="min" fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/zoom-out.png" />
                            </image>
@@ -316,9 +362,9 @@
                   <JFXSlider fx:id="slider" prefHeight="16.0" prefWidth="81.0" />
                   <JFXComboBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="38.0" promptText="12" />
                   <Separator layoutX="202.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
-                  <JFXButton buttonType="RAISED" layoutX="232.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Hand">
+                  <JFXButton fx:id="hand" buttonType="RAISED" layoutX="232.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Hand">
                      <graphic>
-                        <ImageView fx:id="hand" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/hand.png" />
                            </image>
@@ -334,9 +380,9 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="389.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Select">
+                  <JFXButton fx:id="select" buttonType="RAISED" layoutX="389.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Select">
                      <graphic>
-                        <ImageView fx:id="select" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/cursor.png" />
                            </image>
@@ -352,9 +398,9 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="411.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Expand">
+                  <JFXButton fx:id="expand" buttonType="RAISED" layoutX="411.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Expand">
                      <graphic>
-                        <ImageView fx:id="expand" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/expand-filled.png" />
                            </image>
@@ -371,9 +417,9 @@
                      </padding>
                   </JFXButton>
                   <Separator layoutX="381.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
-                  <JFXButton buttonType="RAISED" layoutX="411.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Snapshot">
+                  <JFXButton fx:id="snapshot" buttonType="RAISED" layoutX="411.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Snapshot">
                      <graphic>
-                        <ImageView fx:id="snapshot" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/screenshot.png" />
                            </image>
@@ -389,9 +435,9 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="463.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="24.0" ripplerFill="#140606" text="ScreenCapture">
+                  <JFXButton fx:id="screencap" buttonType="RAISED" layoutX="463.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="24.0" ripplerFill="#140606" text="ScreenCapture">
                      <graphic>
-                        <ImageView fx:id="screencap" fitHeight="18.0" fitWidth="32.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="32.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/screencapture.png" />
                            </image>
@@ -407,9 +453,9 @@
                         <Insets bottom="1.0" left="2.0" right="2.0" top="1.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="463.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Picture">
+                  <JFXButton fx:id="picture" buttonType="RAISED" layoutX="463.0" layoutY="13.0" minWidth="-Infinity" prefHeight="18.0" prefWidth="18.0" ripplerFill="#140606" text="Picture">
                      <graphic>
-                        <ImageView fx:id="picture" fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/picture.png" />
                            </image>
@@ -539,7 +585,7 @@
                      </padding>
                   </JFXButton>
                   <Separator layoutX="1155.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
-                  <Pane prefHeight="28.0" prefWidth="107.0" />
+                  <Pane fx:id="pane" prefHeight="28.0" prefWidth="107.0" />
                   <Separator layoutX="1322.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
                   <ImageView fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -590,32 +636,35 @@
                         </Label>
                         <Accordion layoutY="33.0" prefHeight="684.0" prefWidth="293.0">
                           <panes>
-                            <TitledPane animated="false" text="Data ">
+                            <TitledPane animated="true" text="Actions">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
                                           <JFXButton fx:id="load" buttonType="RAISED" layoutX="9.0" layoutY="14.0" onAction="#loadchartButton" prefWidth="120.0" ripplerFill="#463f3f" style="-fx-background-color: #FCFFF1;" text="Load" textAlignment="CENTER" />
-                                          <JFXButton fx:id="refresh" buttonType="RAISED" layoutX="160.0" layoutY="14.0" onAction="#refreshChart" prefWidth="120.0" ripplerFill="#463f3f" style="-fx-background-color: #FCFFF1;" text="Refresh" textAlignment="CENTER" />
+                                          <JFXButton fx:id="refresh" buttonType="RAISED" layoutX="160.0" layoutY="14.0" onAction="#refreshchartButton" prefWidth="120.0" ripplerFill="#463f3f" style="-fx-background-color: #FCFFF1;" text="Refresh" textAlignment="CENTER" />
                                        </children></AnchorPane>
                               </content>
                             </TitledPane>
-                            <TitledPane animated="false" text="untitled 2">
+                            <TitledPane animated="false" text="Data/Input">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                               </content>
                             </TitledPane>
-                            <TitledPane animated="false" text="untitled 3">
+                            <TitledPane animated="false" text="Analysis">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                               </content>
                             </TitledPane>
                           </panes>
+                           <effect>
+                              <DropShadow color="#9e7878" />
+                           </effect>
                         </Accordion>
                      </children>
                   </AnchorPane>
-                  <ScrollPane hbarPolicy="ALWAYS" pannable="true" vbarPolicy="ALWAYS">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" pannable="true" vbarPolicy="ALWAYS">
                     <content>
-                      <AnchorPane>
+                      <AnchorPane minWidth="-Infinity" prefWidth="1200.0">
                            <children>
                               <Accordion prefHeight="700.0" prefWidth="1300.0">
                                 <panes>
@@ -628,10 +677,10 @@
                                              <children>
                                                 <BarChart fx:id="barChart" layoutX="129.0" layoutY="21.0" prefHeight="512.0" prefWidth="836.0" title="Meritorious Students">
                                                   <xAxis>
-                                                    <CategoryAxis label="Student Name" side="BOTTOM" fx:id="x" />
+                                                    <CategoryAxis label="Student Name" side="BOTTOM" fx:id="xAxis" />
                                                   </xAxis>
                                                   <yAxis>
-                                                    <NumberAxis fx:id="y" side="LEFT" />
+                                                    <NumberAxis fx:id="yAxis" label="Student Gpa" side="LEFT" />
                                                   </yAxis>
                                                 </BarChart>
                                              </children>
@@ -725,18 +774,21 @@
       </Label>
    </top>
    <padding>
-      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+      <Insets bottom="1.0" left="2.0" right="2.0" top="2.0" />
    </padding>
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Label text="Left Status" underline="true">
+            <Label fx:id="llabel" prefHeight="6.0" prefWidth="310.0" text="Left Status" underline="true">
                <font>
                   <Font name="FreeSerif" size="13.0" />
                </font>
             </Label>
-            <Pane prefHeight="18.0" HBox.hgrow="ALWAYS" />
-            <Label text="Right Staus" underline="true" HBox.hgrow="NEVER" />
+            <Pane minWidth="-Infinity" prefHeight="18.0" prefWidth="962.0" />
+            <Label fx:id="rlabel" alignment="TOP_RIGHT" contentDisplay="RIGHT" text="Right Status" textAlignment="RIGHT" underline="true">
+               <font>
+                  <Font name="FreeSerif" size="13.0" />
+               </font></Label>
          </children>
       </HBox>
    </bottom>

@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,7 +26,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.TitledPane;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -47,37 +46,33 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Menu File;
     @FXML
-    private ImageView open;
+    private JFXButton open;
     @FXML
-    private ImageView saveas;
+    private JFXButton close;
     @FXML
-    private ImageView close;
-    @FXML
-    private ImageView edit;
-    @FXML
-    private ImageView paste;
+    private JFXButton edit;
     @FXML
     private JFXButton undo;
     @FXML
-    private ImageView redo;
+    private JFXButton redo;
     @FXML
-    private ImageView max;
+    private JFXButton max;
     @FXML
-    private ImageView min;
+    private JFXButton min;
     @FXML
     private JFXSlider slider;
     @FXML
-    private ImageView hand;
+    private JFXButton hand;
     @FXML
-    private ImageView select;
+    private JFXButton select;
     @FXML
-    private ImageView expand;
+    private JFXButton expand;
     @FXML
-    private ImageView snapshot;
+    private JFXButton snapshot;
     @FXML
-    private ImageView screencap;
+    private JFXButton screencap;
     @FXML
-    private ImageView picture;
+    private JFXButton picture;
     @FXML
     private ColorPicker color;
     @FXML
@@ -87,11 +82,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private BarChart<String, Double> barChart;
     
-    @FXML
-    private CategoryAxis x;
-
-    @FXML
-    private NumberAxis y;
 
     @FXML
     private ScatterChart<?, ?> scatterChart;
@@ -108,10 +98,26 @@ public class FXMLDocumentController implements Initializable {
     private JFXButton login;
 
     private Connection connection;
-
-    //Function to load login Screen
     @FXML
-    private void loginButtonAction(ActionEvent event) throws IOException {
+    private NumberAxis yAxis;
+    @FXML
+    private CategoryAxis xAxis;
+    @FXML
+    private JFXButton save;
+    @FXML
+    private JFXButton fill;
+    @FXML
+    private JFXButton copy;
+    @FXML
+    private Pane pane;
+    @FXML
+    private Label llabel;
+    @FXML
+    private Label rlabel;
+
+    //Method to load login Interface
+    @FXML
+    public void loginButtonAction() throws IOException {
 
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
@@ -131,13 +137,15 @@ public class FXMLDocumentController implements Initializable {
         // TODO
     }
 
+    //Method to Load Charts
+    
     @FXML
-    private void loadchartButton(ActionEvent event) {
-        String query = "SELECT S_Fname,S_Address FROM students ORDER BY S_id asc";
+    public void loadchartButton() {
+        String query = "select *from students where S_Gpa > 3.0;";
         XYChart.Series<String, Double> series = new XYChart.Series<>();
         
         try {
-            //Connect to database
+            //Connect to database   
 
             connection = connectDB();
             //Execute query and Store
@@ -149,14 +157,11 @@ public class FXMLDocumentController implements Initializable {
 
             barChart.getData().add(series);
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }
 
     }
 
-    @FXML
-    private void refreshChart(ActionEvent event) {
-    }
 
     //Method to connect to our Database
     private Connection connectDB() {
@@ -167,13 +172,21 @@ public class FXMLDocumentController implements Initializable {
 
             Connection connect = DriverManager.getConnection(dbString, user, password);
             System.out.println("Connection Succesfull");
-
+             llabel.setText("connection succesful");
+             rlabel.setText("connected to database");
             return connect;
 
         } catch (SQLException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    /**
+     *Method to refresh all loaded Charts
+     */
+    @FXML
+    public void refreshchartButton() {
     }
 
 }

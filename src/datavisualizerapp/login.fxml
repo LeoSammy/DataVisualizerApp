@@ -8,7 +8,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -71,12 +71,12 @@
                         <Font name="Gubbi" size="13.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="93.0" fitWidth="104.0" layoutX="164.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView blendMode="RED" fitHeight="93.0" fitWidth="104.0" layoutX="164.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: blue;">
                      <image>
                         <Image url="@Icons/user.png" />
                      </image>
                      <effect>
-                        <Glow />
+                        <InnerShadow blurType="GAUSSIAN" />
                      </effect>
                   </ImageView>
                </children>
