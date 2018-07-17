@@ -6,28 +6,36 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
-import javafx.scene.chart.ScatterChart;
-import javafx.scene.chart.XYChart;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Pair;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -75,33 +83,21 @@ public class FXMLDocumentController implements Initializable {
     private JFXButton picture;
     @FXML
     private ColorPicker color;
-    @FXML
-    private JFXButton load;
+
     @FXML
     private JFXButton refresh;
-    @FXML
+
+    // Charts .................................//
     private BarChart<String, Double> barChart;
-    
 
-    @FXML
-    private ScatterChart<?, ?> scatterChart;
-
-    @FXML
-    private PieChart pieChart;
-    
     @FXML
     private TitledPane lineChart;
 
+    //.........................................//
     @FXML
     private Label namefield;
     @FXML
     private JFXButton login;
-
-    private Connection connection;
-    @FXML
-    private NumberAxis yAxis;
-    @FXML
-    private CategoryAxis xAxis;
     @FXML
     private JFXButton save;
     @FXML
@@ -114,6 +110,18 @@ public class FXMLDocumentController implements Initializable {
     private Label llabel;
     @FXML
     private Label rlabel;
+    @FXML
+    private AnchorPane barChartpane;
+    @FXML
+    private JFXButton loadall;
+    @FXML
+    private AnchorPane pieChartpane;
+    @FXML
+    private AnchorPane scatterChartpane;
+    @FXML
+    private AnchorPane lineChartpane;
+
+    public Connection connection;
 
     //Method to load login Interface
     @FXML
@@ -137,56 +145,114 @@ public class FXMLDocumentController implements Initializable {
         // TODO
     }
 
-    //Method to Load Charts
-    
+    /**
+     * Method to refresh all loaded Charts
+     */
     @FXML
-    public void loadchartButton() {
-        String query = "select *from students where S_Gpa > 3.0;";
-        XYChart.Series<String, Double> series = new XYChart.Series<>();
-        
-        try {
-            //Connect to database   
+    public void refreshchartButton() {
+    }
 
-            connection = connectDB();
-            //Execute query and Store
+    /**
+     * ********************************** Method to Load all Charts   *********************************
+     */
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void loadchartsButton(ActionEvent event) throws IOException {
 
-            ResultSet rs = connection.createStatement().executeQuery(query);
-            while (rs.next()) {
-                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
-            }
-
-            barChart.getData().add(series);
-
-        } catch (SQLException e) {
-        }
+        AnchorPane pane1 = FXMLLoader.load(getClass().getResource("barchart.fxml"));
+        barChartpane.getChildren().setAll(pane1);
+        AnchorPane pane2 = FXMLLoader.load(getClass().getResource("piechart.fxml"));
+        pieChartpane.getChildren().setAll(pane2);
+        AnchorPane pane3 = FXMLLoader.load(getClass().getResource("scatterchart.fxml"));
+        scatterChartpane.getChildren().setAll(pane3);
+        AnchorPane pane4 = FXMLLoader.load(getClass().getResource("linechart.fxml"));
+        lineChartpane.getChildren().setAll(pane4);
 
     }
 
-
+    /**
+     * ************************************ Method to Load Database **************************************
+     * @return 
+     */
     //Method to connect to our Database
-    private Connection connectDB() {
-        try {
-            String dbString = "jdbc:mysql://localhost:3306/mysql";
-            String user = "root";
-            String password = "Firecell1234";
+    public Connection connectDB() {
+        // Create the custom dialog.
+        Dialog<Pair<String, String>> dialog = new Dialog<>();
+        dialog.setTitle("Login Dialog");
+        dialog.setHeaderText("Enter Username and password");
 
-            Connection connect = DriverManager.getConnection(dbString, user, password);
+     // Set the icon
+        dialog.setGraphic(new ImageView(this.getClass().getResource("login-filled.png").toString()));
+
+     // Set the button types.
+        ButtonType loginButtonType = new ButtonType("Login", ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
+
+     // Create the username and password labels and fields.
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+        
+
+        TextField username = new TextField();
+        username.setPromptText("Username");
+        PasswordField password = new PasswordField();
+        password.setPromptText("Password");
+
+        grid.add(new Label("Username:"), 0, 0);
+        grid.add(username, 1, 0);
+        grid.add(new Label("Password:"), 0, 1);
+        grid.add(password, 1, 1);
+
+     // Enable/Disable login button depending on whether a username was entered.
+        Node loginButton = dialog.getDialogPane().lookupButton(loginButtonType);
+        loginButton.setDisable(true);
+
+      // Do some validation (using the Java 8 lambda syntax).
+        username.textProperty().addListener((observable, oldValue, newValue) -> {
+            loginButton.setDisable(newValue.trim().isEmpty());
+        });
+
+        dialog.getDialogPane().setContent(grid);
+
+     // Request focus on the username field by default.
+        Platform.runLater(() -> username.requestFocus());
+
+     // Convert the result to a username-password-pair when the login button is clicked.
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == loginButtonType) {
+                return new Pair<>(username.getText(), password.getText());
+            }
+            return null;
+        });
+
+        Optional<Pair<String, String>> result = dialog.showAndWait();
+
+        result.ifPresent(usernamePassword -> {
+            System.out.println("Username=" + usernamePassword.getKey() + ", Password=" + usernamePassword.getValue());
+        });
+        
+        try {
+            String dbString ;
+            dbString = "jdbc:mysql://localhost:3306/student_record?zeroDateTimeBehavior=convertToNull";
+            String user = username.getText();
+            String pswd= password.getText();
+
+            Connection connect;
+            connect = DriverManager.getConnection(dbString, user, pswd);
+            JOptionPane.showMessageDialog(null,"Connected");
             System.out.println("Connection Succesfull");
-             llabel.setText("connection succesful");
-             rlabel.setText("connected to database");
             return connect;
 
         } catch (SQLException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Connection Failed");
         }
         return null;
-    }
-
-    /**
-     *Method to refresh all loaded Charts
-     */
-    @FXML
-    public void refreshchartButton() {
     }
 
 }

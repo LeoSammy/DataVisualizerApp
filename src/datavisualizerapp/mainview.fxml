@@ -5,12 +5,6 @@
 <?import com.jfoenix.controls.JFXSlider?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.chart.ScatterChart?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
@@ -640,7 +634,7 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <JFXButton fx:id="load" buttonType="RAISED" layoutX="9.0" layoutY="14.0" onAction="#loadchartButton" prefWidth="120.0" ripplerFill="#463f3f" style="-fx-background-color: #FCFFF1;" text="Load" textAlignment="CENTER" />
+                                          <JFXButton fx:id="loadall" buttonType="RAISED" layoutX="9.0" layoutY="14.0" onAction="#loadchartsButton" prefWidth="120.0" ripplerFill="#463f3f" style="-fx-background-color: #FCFFF1;" text="Load Charts" textAlignment="CENTER" />
                                           <JFXButton fx:id="refresh" buttonType="RAISED" layoutX="160.0" layoutY="14.0" onAction="#refreshchartButton" prefWidth="120.0" ripplerFill="#463f3f" style="-fx-background-color: #FCFFF1;" text="Refresh" textAlignment="CENTER" />
                                        </children></AnchorPane>
                               </content>
@@ -670,20 +664,10 @@
                                 <panes>
                                   <TitledPane text="BarChart">
                                     <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0">
+                                      <AnchorPane fx:id="barChartpane" minHeight="0.0" minWidth="0.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
-                                             <children>
-                                                <BarChart fx:id="barChart" layoutX="129.0" layoutY="21.0" prefHeight="512.0" prefWidth="836.0" title="Meritorious Students">
-                                                  <xAxis>
-                                                    <CategoryAxis label="Student Name" side="BOTTOM" fx:id="xAxis" />
-                                                  </xAxis>
-                                                  <yAxis>
-                                                    <NumberAxis fx:id="yAxis" label="Student Gpa" side="LEFT" />
-                                                  </yAxis>
-                                                </BarChart>
-                                             </children>
                                           </AnchorPane>
                                     </content>
                                        <font>
@@ -692,51 +676,28 @@
                                   </TitledPane>
                                   <TitledPane text="Pie Chart">
                                     <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                      <AnchorPane fx:id="pieChartpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
-                                             <children>
-                                                <PieChart fx:id="pieChart" layoutX="100.0" layoutY="23.0" prefHeight="497.0" prefWidth="784.0" startAngle="20.0" />
-                                             </children>
                                           </AnchorPane>
                                     </content>
                                   </TitledPane>
                                   <TitledPane text="Scatter Chart">
                                     <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                      <AnchorPane fx:id="scatterChartpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
-                                             <children>
-                                                <ScatterChart fx:id="scatterChart" layoutX="14.0" layoutY="14.0" prefHeight="501.0" prefWidth="732.0">
-                                                  <xAxis>
-                                                    <CategoryAxis side="BOTTOM" />
-                                                  </xAxis>
-                                                  <yAxis>
-                                                    <NumberAxis side="LEFT" />
-                                                  </yAxis>
-                                                </ScatterChart>
-                                             </children>
                                           </AnchorPane>
                                     </content>
                                   </TitledPane>
                                     <TitledPane fx:id="lineChart" text="Line Chart">
                                       <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <AnchorPane fx:id="lineChartpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
-                                             <children>
-                                                <LineChart layoutX="14.0" layoutY="14.0" prefHeight="488.0" prefWidth="721.0">
-                                                  <xAxis>
-                                                    <CategoryAxis side="BOTTOM" />
-                                                  </xAxis>
-                                                  <yAxis>
-                                                    <NumberAxis side="LEFT" />
-                                                  </yAxis>
-                                                </LineChart>
-                                             </children>
                                           </AnchorPane>
                                       </content>
                                     </TitledPane>
@@ -758,7 +719,7 @@
          <graphic>
             <ImageView blendMode="MULTIPLY" fitHeight="33.0" fitWidth="67.0" opacity="0.96" pickOnBounds="true">
                <image>
-                  <Image url="@Logo.png" />
+                  <Image url="@Icons/Logo.png" />
                </image>
                <viewport>
                   <Rectangle2D />

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package datavisualizerapp;
 
 import com.jfoenix.controls.JFXButton;
@@ -54,12 +49,17 @@ public class SignupController implements Initializable {
         if (!pswd.getText().equals(cpswd.getText())){
             status.setText("Passwords dont Match");
         }
-        else if ((pswd.getText() == null || cpswd.getText() == null)){
-            status.setText("Password Field cant be empty");
+        else if ((pswd.getText() == null || cpswd.getText().isEmpty())){
+                 status.setText("Password Required");
         }
+        
         else {
-            status.setText("Account Creation Succesfull");
-            System.out.println("Account Creation Succesfull");
+            status.setText("Account Creation Succesful");
         }
+        System.out.println("Account Creation Succesfull");
+        //Method to Inject Data into Database Server
+        /*
+        *
+        */
     }
 }

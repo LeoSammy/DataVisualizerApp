@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="592.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.PiechartController">
+   <children>
+      <PieChart fx:id="Piechart" layoutX="25.0" layoutY="36.0" legendSide="RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="800.0" style="-fx-background-color: #FCFFF1;" title="PieChart">
+         <effect>
+            <DropShadow />
+         </effect></PieChart>
+      <JFXButton fx:id="load" buttonType="RAISED" layoutX="25.0" layoutY="525.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadPieChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
+         <padding>
+            <Insets bottom="5.0" left="5.0" top="5.0" />
+         </padding>
+      </JFXButton>
+   </children>
+   <padding>
+      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+   </padding>
+</AnchorPane>

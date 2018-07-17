@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.BarchartController">
+   <padding>
+      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+   </padding>
+   <children>
+      <BarChart fx:id="barChart" layoutX="33.0" layoutY="14.0" legendSide="RIGHT" prefHeight="515.0" prefWidth="835.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+         <effect>
+            <DropShadow />
+         </effect>
+      </BarChart>
+      <JFXButton fx:id="load" buttonType="RAISED" layoutX="82.0" layoutY="539.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadBarChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
+         <padding>
+            <Insets bottom="5.0" left="5.0" top="5.0" />
+         </padding>
+      </JFXButton>
+   </children>
+</AnchorPane>
