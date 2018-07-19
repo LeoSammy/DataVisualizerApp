@@ -8,15 +8,14 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="588.0" prefWidth="923.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9" fx:controller="datavisualizerapp.ScatterchartController">
+<AnchorPane id="AnchorPane" prefHeight="588.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.ScatterchartController">
    <children>
-      <ScatterChart layoutX="12.0" layoutY="22.0" legendSide="RIGHT" prefHeight="506.0" prefWidth="826.0" title="ScatterChart">
+      <ScatterChart fx:id="scatterChart" layoutX="12.0" layoutY="22.0" legendSide="RIGHT" prefHeight="506.0" prefWidth="826.0" title="ScatterChart">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis label="Gpa" side="LEFT" upperBound="4.0" />
         </yAxis>
          <effect>
             <DropShadow />

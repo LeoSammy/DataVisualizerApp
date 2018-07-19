@@ -11,7 +11,13 @@
       <PieChart fx:id="Piechart" layoutX="25.0" layoutY="36.0" legendSide="RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="800.0" style="-fx-background-color: #FCFFF1;" title="PieChart">
          <effect>
             <DropShadow />
-         </effect></PieChart>
+         </effect>
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </opaqueInsets></PieChart>
       <JFXButton fx:id="load" buttonType="RAISED" layoutX="25.0" layoutY="525.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadPieChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
          <padding>
             <Insets bottom="5.0" left="5.0" top="5.0" />

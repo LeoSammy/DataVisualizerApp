@@ -33,35 +33,37 @@ public class PiechartController extends FXMLDocumentController implements Initia
     PreparedStatement ps;
     ResultSet rs;
 
-    ObservableList<PieChart.Data> piechartdata;
+    ObservableList<PieChart.Data> piechartdata1, piechartdata2;
 
     ArrayList<Float> gpa = new ArrayList<Float>();
     ArrayList<String> name = new ArrayList<String>();
-  
+   
+
     @FXML
     private void loadPieChart() {
-        piechartdata = FXCollections.observableArrayList();
+        piechartdata1 = FXCollections.observableArrayList();
         try {
             //Connect to Database 
             connection = connectDB();
             //Query  
-            ps = connection.prepareStatement("select *from students where S_Gpa > 3.0");
+            ps = connection.prepareStatement("select *from students where S_Gpa > 2.5 ");
             rs = ps.executeQuery();
             while (rs.next()) {
 
-                piechartdata.add(new PieChart.Data(rs.getString("S_Fname"), rs.getFloat("S_Gpa")));
-                name.add(rs.getString("S_Fname"));
+                piechartdata1.add(new PieChart.Data(rs.getString("S_Lname"), rs.getFloat("S_Gpa")));
+                name.add(rs.getString("S_Lname"));
                 gpa.add(rs.getFloat("S_Gpa"));
+                
             }
+            Piechart.setData(piechartdata1);  
         } catch (SQLException e) {
         }
+        
     }
 
     //Initailizable
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadPieChart();
-        Piechart.setData(piechartdata);
 
     }
 }

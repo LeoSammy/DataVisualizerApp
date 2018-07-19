@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ColorPicker;
@@ -28,7 +29,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -90,8 +90,6 @@ public class FXMLDocumentController implements Initializable {
     // Charts .................................//
     private BarChart<String, Double> barChart;
 
-    @FXML
-    private TitledPane lineChart;
 
     //.........................................//
     @FXML
@@ -107,9 +105,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Pane pane;
     @FXML
-    private Label llabel;
+    public Label llabel;
     @FXML
-    private Label rlabel;
+    public Label rlabel;
     @FXML
     private AnchorPane barChartpane;
     @FXML
@@ -122,6 +120,8 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane lineChartpane;
 
     public Connection connection;
+    @FXML
+    private Button cnct;
 
     //Method to load login Interface
     @FXML
@@ -171,7 +171,6 @@ public class FXMLDocumentController implements Initializable {
         scatterChartpane.getChildren().setAll(pane3);
         AnchorPane pane4 = FXMLLoader.load(getClass().getResource("linechart.fxml"));
         lineChartpane.getChildren().setAll(pane4);
-
     }
 
     /**
@@ -179,10 +178,14 @@ public class FXMLDocumentController implements Initializable {
      * @return 
      */
     //Method to connect to our Database
+    
+    @FXML
     public Connection connectDB() {
-        // Create the custom dialog.
+        //Prompt for Database Connection
+       // Create the custom dialog.
+    
         Dialog<Pair<String, String>> dialog = new Dialog<>();
-        dialog.setTitle("Login Dialog");
+        dialog.setTitle("Database Login");
         dialog.setHeaderText("Enter Username and password");
 
      // Set the icon
@@ -236,6 +239,7 @@ public class FXMLDocumentController implements Initializable {
             System.out.println("Username=" + usernamePassword.getKey() + ", Password=" + usernamePassword.getValue());
         });
         
+       
         try {
             String dbString ;
             dbString = "jdbc:mysql://localhost:3306/student_record?zeroDateTimeBehavior=convertToNull";
@@ -246,13 +250,17 @@ public class FXMLDocumentController implements Initializable {
             connect = DriverManager.getConnection(dbString, user, pswd);
             JOptionPane.showMessageDialog(null,"Connected");
             System.out.println("Connection Succesfull");
+           
             return connect;
 
         } catch (SQLException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Connection Failed");
+            JOptionPane.showMessageDialog(null, "Problem Occured. Input data Invalid");
+           
         }
         return null;
     }
 
 }
+
+/******************************* Methods For File Operations *************************/

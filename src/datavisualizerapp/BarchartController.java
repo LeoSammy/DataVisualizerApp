@@ -4,15 +4,15 @@
 package datavisualizerapp;
 
 import com.jfoenix.controls.JFXButton;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.ActionEvent;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
 /**
@@ -20,22 +20,29 @@ import javafx.scene.chart.XYChart;
  *
  * @author leo
  */
-public class BarchartController extends FXMLDocumentController {
+public class BarchartController extends FXMLDocumentController implements Initializable {
 
-    @FXML
-    private BarChart<String, Double> barChart;
+   
     @FXML
     private JFXButton load;
-
+    @FXML
+    private CategoryAxis xAxis;
+    @FXML
+    private NumberAxis yAxis;
+    
+    @FXML
+    private BarChart<String, Double> barChart;
+ 
+    
     /**
      * Initializes the controller class.
      * @param event
      */
    
     @FXML
-    private void loadBarChart(ActionEvent event) {
+    private void loadBarChart() {
         String query;
-        query = "select S_Lname, S_Fname from students order by S_Gpa asc";
+        query = "select S_Lname, S_Gpa FROM students ORDER BY S_Gpa asc";
         XYChart.Series<String, Double> series;
         series = new XYChart.Series<>();
 
@@ -46,15 +53,20 @@ public class BarchartController extends FXMLDocumentController {
 
             ResultSet rs = connection.createStatement().executeQuery(query);
             while (rs.next()) {
-                series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+               series.getData().add(new XYChart.Data<>(rs.getString(1), rs.getDouble(2)));
+               
             }
 
-            barChart.getData().add(series);
+           barChart.getData().add(series);
         } catch (SQLException e) {
         }
 
     }
 
-  
+  //Initializer 
+     @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        
+    }
 
 }

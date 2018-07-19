@@ -57,9 +57,13 @@ public class SignupController implements Initializable {
             status.setText("Account Creation Succesful");
         }
         System.out.println("Account Creation Succesfull");
-        //Method to Inject Data into Database Server
+        
+        /******************************** Method to Inject Data into Database Server   *********************/
+        
         /*
-        *
+        *connect to Database users
+        
         */
+        
     }
 }

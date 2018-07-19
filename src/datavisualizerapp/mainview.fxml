@@ -6,6 +6,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -92,7 +93,14 @@
                         <MenuItem mnemonicParsing="false" text="Load File" />
                         <Menu mnemonicParsing="false" text="Connect">
                           <items>
-                            <MenuItem mnemonicParsing="false" text="Local Database" />
+                            <MenuItem mnemonicParsing="false" text="Local Database">
+                                 <graphic>
+                                    <Button fx:id="cnct" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#connectDB" prefHeight="35.0" prefWidth="90.0" text="Connect" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Saab" size="13.0" />
+                                       </font>
+                                    </Button>
+                                 </graphic></MenuItem>
                               <MenuItem mnemonicParsing="false" text="Cloud Server" />
                           </items>
                         </Menu>
@@ -692,9 +700,9 @@
                                           </AnchorPane>
                                     </content>
                                   </TitledPane>
-                                    <TitledPane fx:id="lineChart" text="Line Chart">
+                                    <TitledPane text="Line Chart">
                                       <content>
-                                        <AnchorPane fx:id="lineChartpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                        <AnchorPane fx:id="lineChartpane" minHeight="0.0" minWidth="0.0" prefHeight="556.0" prefWidth="1298.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
@@ -740,13 +748,13 @@
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="llabel" prefHeight="6.0" prefWidth="310.0" text="Left Status" underline="true">
+            <Label fx:id="llabel" prefHeight="6.0" prefWidth="310.0" underline="true">
                <font>
                   <Font name="FreeSerif" size="13.0" />
                </font>
             </Label>
-            <Pane minWidth="-Infinity" prefHeight="18.0" prefWidth="962.0" />
-            <Label fx:id="rlabel" alignment="TOP_RIGHT" contentDisplay="RIGHT" text="Right Status" textAlignment="RIGHT" underline="true">
+            <Pane minWidth="-Infinity" prefHeight="18.0" prefWidth="1004.0" />
+            <Label fx:id="rlabel" alignment="TOP_RIGHT" contentDisplay="RIGHT" textAlignment="RIGHT" underline="true">
                <font>
                   <Font name="FreeSerif" size="13.0" />
                </font></Label>
