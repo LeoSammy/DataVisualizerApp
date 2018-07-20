@@ -19,7 +19,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
@@ -32,7 +31,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import javax.swing.JOptionPane;
@@ -41,7 +40,7 @@ import javax.swing.JOptionPane;
  *
  * @author leo
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController  implements Initializable {
 
     @FXML
     private Menu Load;
@@ -86,14 +85,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private JFXButton refresh;
-
-    // Charts .................................//
-    private BarChart<String, Double> barChart;
-
-
-    //.........................................//
     @FXML
-    private Label namefield;
+    public Label namefield;
     @FXML
     private JFXButton login;
     @FXML
@@ -103,11 +96,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private JFXButton copy;
     @FXML
-    private Pane pane;
-    @FXML
     public Label llabel;
-    @FXML
-    public Label rlabel;
     @FXML
     private AnchorPane barChartpane;
     @FXML
@@ -120,8 +109,13 @@ public class FXMLDocumentController implements Initializable {
     private AnchorPane lineChartpane;
 
     public Connection connection;
+    public Connection dconnection;
+    
     @FXML
     private Button cnct;
+    
+  
+ 
 
     //Method to load login Interface
     @FXML
@@ -177,8 +171,8 @@ public class FXMLDocumentController implements Initializable {
      * ************************************ Method to Load Database **************************************
      * @return 
      */
-    //Method to connect to our Database
     
+    //Method to connect to student Database
     @FXML
     public Connection connectDB() {
         //Prompt for Database Connection
@@ -254,13 +248,40 @@ public class FXMLDocumentController implements Initializable {
             return connect;
 
         } catch (SQLException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            
             JOptionPane.showMessageDialog(null, "Problem Occured. Input data Invalid");
            
         }
         return null;
     }
+    
+    
+    //Method to Connect to Users Database
+    public Connection usersDB() {
+        
+        try {
+            String dbString;
+            
+            dbString = "jdbc:mysql://localhost:3306/datavisio_users?zeroDateTimeBehavior=convertToNull";
+            String auser = "root";
+            String apswd = "Firecell1234";
+            //Fields to Input into database
+           
+            
+             Connection dconnect;
+             dconnect = DriverManager.getConnection(dbString, auser, apswd);
+             System.out.println("Database Conncetion Established");
+             
+             return dconnect;
+           
+        } catch (SQLException ex) {
+             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+             System.out.println("Connection failed");
+        }
+        return null;
+            
+   }
+/******************************* Methods For File Operations *************************/
 
 }
 
-/******************************* Methods For File Operations *************************/

@@ -21,7 +21,7 @@
             <DropShadow />
          </effect>
       </ScatterChart>
-      <JFXButton fx:id="load" buttonType="RAISED" layoutX="60.0" layoutY="528.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadScatterChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
+      <JFXButton fx:id="load" buttonType="RAISED" layoutX="88.0" layoutY="528.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadScatterChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
          <padding>
             <Insets bottom="5.0" left="5.0" top="5.0" />
          </padding>

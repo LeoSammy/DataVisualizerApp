@@ -3,11 +3,11 @@ package datavisualizerapp;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
@@ -16,7 +16,7 @@ import javafx.scene.image.ImageView;
  *
  * @author leo
  */
-public class SignupController implements Initializable {
+public class  SignupController  extends FXMLDocumentController {
 
     @FXML
     private JFXTextField usrname;
@@ -34,15 +34,10 @@ public class SignupController implements Initializable {
     private Label status;
     @FXML
     private ImageView img;
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-
+    
+    PreparedStatement pst;
+   
+   
     @FXML
     private void createAccntButton(ActionEvent event) {
         
@@ -55,15 +50,34 @@ public class SignupController implements Initializable {
         
         else {
             status.setText("Account Creation Succesful");
+             
         }
-        System.out.println("Account Creation Succesfull");
+        
         
         /******************************** Method to Inject Data into Database Server   *********************/
+         dconnection = usersDB();
+         try {
+            String sql;
+            sql = "insert into users (user_id, user_name, user_email, user_usrname,user_pswd) values (?,?,?,?,?)";
+             
+            pst = dconnection.prepareStatement(sql);
+            
+            pst.setString(1, null);
+            pst.setString(2, name.getText());
+            pst.setString(3, email.getText());
+            pst.setString(4, usrname.getText()); 
+            pst.setString(5, pswd.getText()); 
+            
+            pst.execute();
+            System.out.println("save succesfull");
+        } catch (SQLException e) {
+             System.out.println(e);
+             
+        }
         
-        /*
-        *connect to Database users
-        
-        */
-        
+
     }
+   
+    
+        
 }

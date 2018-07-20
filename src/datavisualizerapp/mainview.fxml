@@ -587,9 +587,9 @@
                      </padding>
                   </JFXButton>
                   <Separator layoutX="1155.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
-                  <Pane fx:id="pane" prefHeight="28.0" prefWidth="107.0" />
+                  <Pane prefHeight="28.0" prefWidth="88.0" />
                   <Separator layoutX="1322.0" layoutY="10.0" orientation="VERTICAL" prefHeight="18.0" prefWidth="0.0" />
-                  <ImageView fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                  <ImageView disable="true" fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Icons/user.png" />
                      </image>
@@ -597,7 +597,7 @@
                   <Label fx:id="namefield" text="leosammy@y..." />
                   <JFXButton fx:id="login" buttonType="RAISED" layoutX="1410.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loginButtonAction" prefHeight="22.0" prefWidth="40.0" ripplerFill="#140606" text="Login">
                      <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="50.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="36.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Icons/Login.png" />
                            </image>
@@ -702,7 +702,7 @@
                                   </TitledPane>
                                     <TitledPane text="Line Chart">
                                       <content>
-                                        <AnchorPane fx:id="lineChartpane" minHeight="0.0" minWidth="0.0" prefHeight="556.0" prefWidth="1298.0">
+                                        <AnchorPane fx:id="lineChartpane" prefHeight="556.0" prefWidth="1298.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
@@ -754,10 +754,6 @@
                </font>
             </Label>
             <Pane minWidth="-Infinity" prefHeight="18.0" prefWidth="1004.0" />
-            <Label fx:id="rlabel" alignment="TOP_RIGHT" contentDisplay="RIGHT" textAlignment="RIGHT" underline="true">
-               <font>
-                  <Font name="FreeSerif" size="13.0" />
-               </font></Label>
          </children>
       </HBox>
    </bottom>
