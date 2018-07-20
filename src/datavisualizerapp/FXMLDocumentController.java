@@ -112,6 +112,8 @@ public class FXMLDocumentController  implements Initializable {
     
     @FXML
     private Button cnct;
+    @FXML
+    private AnchorPane areaChartpane;
     
   
  
@@ -164,6 +166,8 @@ public class FXMLDocumentController  implements Initializable {
         scatterChartpane.getChildren().setAll(pane3);
         AnchorPane pane4 = FXMLLoader.load(getClass().getResource("linechart.fxml"));
         lineChartpane.getChildren().setAll(pane4);
+        AnchorPane pane5 = FXMLLoader.load(getClass().getResource("areachart.fxml"));
+        areaChartpane.getChildren().setAll(pane5);
     }
 
     /**

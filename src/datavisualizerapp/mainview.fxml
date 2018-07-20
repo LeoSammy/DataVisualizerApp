@@ -664,7 +664,7 @@
                         </Accordion>
                      </children>
                   </AnchorPane>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" pannable="true" vbarPolicy="ALWAYS">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" vbarPolicy="ALWAYS">
                     <content>
                       <AnchorPane minWidth="-Infinity" prefWidth="1200.0">
                            <children>
@@ -707,6 +707,11 @@
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
                                           </AnchorPane>
+                                      </content>
+                                    </TitledPane>
+                                    <TitledPane text="Area Chart">
+                                      <content>
+                                        <AnchorPane fx:id="areaChartpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                       </content>
                                     </TitledPane>
                                 </panes>
