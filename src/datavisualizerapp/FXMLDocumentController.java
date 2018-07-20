@@ -132,6 +132,7 @@ public class FXMLDocumentController  implements Initializable {
         stage.show();
 
         System.out.println("logging in...");
+   
 
     }
 

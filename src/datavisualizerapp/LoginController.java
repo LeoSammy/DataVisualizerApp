@@ -26,7 +26,7 @@ public class LoginController extends FXMLDocumentController {
     private JFXPasswordField pswd;
     @FXML
     private Label stats;
-
+    
     
 
     @FXML
@@ -48,7 +48,7 @@ public class LoginController extends FXMLDocumentController {
 
                 if ((usrname.getText() == null ? dbValue1 == null : usrname.getText().equals(dbValue1)) && (pswd.getText() == null ? dbvalue2 == null : pswd.getText().equals(dbvalue2))) {
                     stats.setText("Login Succesfull");
-                    System.out.println("login confirmed");
+                    System.out.println("logged in");
                  
                 } else {
                     stats.setText("Login Failed");

@@ -594,7 +594,7 @@
                         <Image url="@Icons/user.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="namefield" text="leosammy@y..." />
+                  <Label fx:id="namefield" text="usrname" />
                   <JFXButton fx:id="login" buttonType="RAISED" layoutX="1410.0" layoutY="13.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loginButtonAction" prefHeight="22.0" prefWidth="40.0" ripplerFill="#140606" text="Login">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="36.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
@@ -672,7 +672,7 @@
                                 <panes>
                                   <TitledPane text="BarChart">
                                     <content>
-                                      <AnchorPane fx:id="barChartpane" minHeight="0.0" minWidth="0.0">
+                                      <AnchorPane fx:id="barChartpane" prefHeight="560.0" prefWidth="1298.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
@@ -684,7 +684,7 @@
                                   </TitledPane>
                                   <TitledPane text="Pie Chart">
                                     <content>
-                                      <AnchorPane fx:id="pieChartpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                      <AnchorPane fx:id="pieChartpane" prefHeight="560.0" prefWidth="1298.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
@@ -693,7 +693,7 @@
                                   </TitledPane>
                                   <TitledPane text="Scatter Chart">
                                     <content>
-                                      <AnchorPane fx:id="scatterChartpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                      <AnchorPane fx:id="scatterChartpane" prefHeight="560.0" prefWidth="1298.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
@@ -702,7 +702,7 @@
                                   </TitledPane>
                                     <TitledPane text="Line Chart">
                                       <content>
-                                        <AnchorPane fx:id="lineChartpane" prefHeight="556.0" prefWidth="1298.0">
+                                        <AnchorPane fx:id="lineChartpane" prefHeight="560.0" prefWidth="1298.0">
                                              <padding>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </padding>
@@ -711,7 +711,7 @@
                                     </TitledPane>
                                     <TitledPane text="Area Chart">
                                       <content>
-                                        <AnchorPane fx:id="areaChartpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                        <AnchorPane fx:id="areaChartpane" prefHeight="560.0" prefWidth="1298.0" />
                                       </content>
                                     </TitledPane>
                                 </panes>

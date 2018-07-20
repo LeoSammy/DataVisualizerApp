@@ -13,9 +13,9 @@
       <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
    </padding>
    <children>
-      <BarChart fx:id="barChart" layoutX="33.0" layoutY="14.0" legendSide="RIGHT" prefHeight="538.0" prefWidth="887.0" title="Students Gpa">
+      <BarChart fx:id="barChart" layoutX="33.0" layoutY="14.0" legendSide="RIGHT" prefHeight="531.0" prefWidth="887.0" title="Students Gpa">
         <xAxis>
-          <CategoryAxis label="Student Name" side="BOTTOM" fx:id="xAxis" />
+          <CategoryAxis label="Student Name" prefHeight="22.0" prefWidth="802.0" side="BOTTOM" fx:id="xAxis" />
         </xAxis>
         <yAxis>
           <NumberAxis fx:id="yAxis" label="Gpa" side="LEFT" upperBound="4.0" />
@@ -24,9 +24,9 @@
             <DropShadow />
          </effect>
       </BarChart>
-      <JFXButton fx:id="load" buttonType="RAISED" layoutX="100.0" layoutY="533.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadBarChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
+      <JFXButton fx:id="load" buttonType="RAISED" layoutX="106.0" layoutY="545.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadBarChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
          <padding>
-            <Insets bottom="5.0" left="5.0" top="5.0" />
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
          </padding>
       </JFXButton>
    </children>
