@@ -8,9 +8,9 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.AreachartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.AreachartController">
    <children>
-      <AreaChart fx:id="areaChart" layoutX="13.0" layoutY="20.0" legendSide="RIGHT" prefHeight="507.0" prefWidth="845.0" title="Area Chart">
+      <AreaChart fx:id="areaChart" layoutX="13.0" layoutY="14.0" legendSide="RIGHT" prefHeight="466.0" prefWidth="845.0" title="Area Chart">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -21,7 +21,7 @@
             <DropShadow />
          </effect>
       </AreaChart>
-      <JFXButton fx:id="load" buttonType="RAISED" layoutX="88.0" layoutY="527.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadAreaChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
+      <JFXButton fx:id="load" buttonType="RAISED" layoutX="86.0" layoutY="490.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadAreaChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
          <padding>
             <Insets bottom="5.0" left="5.0" top="5.0" />
          </padding>

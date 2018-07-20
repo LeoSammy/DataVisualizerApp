@@ -8,7 +8,7 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.BarchartController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datavisualizerapp.BarchartController">
    <padding>
       <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
    </padding>
@@ -24,7 +24,7 @@
             <DropShadow />
          </effect>
       </BarChart>
-      <JFXButton fx:id="load" buttonType="RAISED" layoutX="99.0" layoutY="541.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadBarChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
+      <JFXButton fx:id="load" buttonType="RAISED" layoutX="100.0" layoutY="533.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#loadBarChart" prefHeight="38.0" prefWidth="143.0" ripplerFill="#f2ecec" style="-fx-background-color: #4BC9CD;" text="Load Data" textFill="#360909">
          <padding>
             <Insets bottom="5.0" left="5.0" top="5.0" />
          </padding>

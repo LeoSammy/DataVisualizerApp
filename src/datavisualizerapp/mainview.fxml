@@ -623,7 +623,7 @@
             </ToolBar>
             <SplitPane dividerPositions="0.185" VBox.vgrow="ALWAYS">
               <items>
-                <AnchorPane maxWidth="350.0" minWidth="-Infinity">
+                <AnchorPane maxWidth="300.0" minWidth="-Infinity">
                      <children>
                         <Label alignment="CENTER" disable="true" prefHeight="26.0" prefWidth="293.0" style="-fx-background-color: #Ced4;" text="Data Configuration and Chart Analysis " textFill="#322db5">
                            <font>
@@ -636,7 +636,7 @@
                               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                            </padding>
                         </Label>
-                        <Accordion layoutY="33.0" prefHeight="684.0" prefWidth="293.0">
+                        <Accordion layoutY="33.0" prefWidth="293.0">
                           <panes>
                             <TitledPane animated="true" text="Actions">
                               <content>
@@ -664,7 +664,7 @@
                         </Accordion>
                      </children>
                   </AnchorPane>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" vbarPolicy="ALWAYS">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" pannable="true" vbarPolicy="ALWAYS" SplitPane.resizableWithParent="false">
                     <content>
                       <AnchorPane minWidth="-Infinity" prefWidth="1200.0">
                            <children>

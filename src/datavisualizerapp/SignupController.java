@@ -3,7 +3,6 @@ package datavisualizerapp;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javafx.event.ActionEvent;
@@ -50,10 +49,7 @@ public class  SignupController  extends FXMLDocumentController {
         
         else {
             status.setText("Account Creation Succesful");
-             
-        }
-        
-        
+              
         /******************************** Method to Inject Data into Database Server   *********************/
          dconnection = usersDB();
          try {
@@ -74,6 +70,10 @@ public class  SignupController  extends FXMLDocumentController {
              System.out.println(e);
              
         }
+             
+        }
+        
+      
         
 
     }
